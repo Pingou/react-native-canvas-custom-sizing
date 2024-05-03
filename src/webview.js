@@ -51,7 +51,7 @@ class AutoScaledCanvas {
       this.element.width = this.savedWidth;
     }
 
-    window.autoScaleCanvas(this.element, this.savedViewWidth, this.savedViewHeight, this.element.width, this.element.width);
+    window.autoScaleCanvas(this.element, this.savedViewWidth, this.savedViewHeight, this.savedWidth, this.savedHeight);
   }
 
   get width() {
