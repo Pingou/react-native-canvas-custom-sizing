@@ -40,13 +40,18 @@ class AutoScaledCanvas {
   }
 
   autoScale() {
+
+    if (!this.savedViewWidth || !this.savedViewHeight  || !this.savedWidth || !this.savedHeight)
+        return;
     if (this.savedHeight !== undefined) {
       this.element.height = this.savedHeight;
     }
+
     if (this.savedWidth !== undefined) {
       this.element.width = this.savedWidth;
     }
-    window.autoScaleCanvas(this.element);
+
+    window.autoScaleCanvas(this.element, this.savedViewWidth, this.savedViewHeight, this.element.width, this.element.width);
   }
 
   get width() {
@@ -65,6 +70,26 @@ class AutoScaledCanvas {
 
   set height(value) {
     this.savedHeight = value;
+    this.autoScale();
+    return value;
+  }
+
+  get viewWidth() {
+    return 0;
+  }
+
+  set viewWidth(value) {
+    this.savedViewWidth = value;
+    this.autoScale();
+    return value;
+  }
+
+  get viewHeight() {
+    return 0;
+  }
+
+  set viewHeight(value) {
+    this.savedViewHeight = value;
     this.autoScale();
     return value;
   }

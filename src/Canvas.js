@@ -27,6 +27,7 @@ const stylesheet = StyleSheet.create({
 
 @webviewTarget('canvas')
 @webviewProperties({width: 300, height: 150})
+@webviewProperties({viewWidth: 300, viewHeight: 150})
 @webviewMethods(['toDataURL'])
 export default class Canvas extends Component {
 
